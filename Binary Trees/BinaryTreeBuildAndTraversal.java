@@ -43,6 +43,32 @@ public class BinaryTreeBuildAndTraversal {
             preorderTraversal(root.left);
             preorderTraversal(root.right);
         }
+
+        //----> Doing Inorder Traversal and printing it
+        //----> Time Complexity: O(n) 
+        public void inorderTraversal(Node root){
+
+            if(root == null){
+                return;
+            }
+
+            inorderTraversal(root.left);
+            System.out.print(root.data + " ");
+            inorderTraversal(root.right);
+        }
+
+        //----> Doing Postorder Traversal and printing it
+        //----> Time Complexity: O(n) 
+        public void postorderTraversal(Node root){
+
+            if(root == null){
+                return;
+            }
+
+            postorderTraversal(root.left);
+            postorderTraversal(root.right);
+            System.out.print(root.data + " ");
+        }
     }
     public static void main(String[] args) {
 
@@ -50,10 +76,20 @@ public class BinaryTreeBuildAndTraversal {
 
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        System.out.println(root.data);
+        System.out.println("Root of tree : " + root.data);
 
+        System.out.print("Preorder Traversal : " );
         tree.preorderTraversal(root);
         
+        System.out.println();
+        
+        System.out.print("Inorder Traversal : ");
+        tree.inorderTraversal(root);
+        
+        System.out.println();
+
+        System.out.print("Postorder Traversal : ");
+        tree.postorderTraversal(root);
     }
 
 }
