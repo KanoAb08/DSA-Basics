@@ -1,5 +1,4 @@
-//----> Time Complexity: O(n) 
-public class BuildTreePreorder {
+public class BinaryTreeBuildAndTraversal {
     
     static class Node{
         int data;
@@ -14,11 +13,14 @@ public class BuildTreePreorder {
     }
 
     static class BinaryTree{
+
         static int index = -1;
 
+        //----> Building Preorder Tree
+        //----> Time Complexity: O(n) 
         public Node buildTree(int[] nodes){
             index++;
-            if(index == -1){
+            if(nodes[index] == -1){
                 return null;
             }
 
@@ -29,14 +31,28 @@ public class BuildTreePreorder {
             return newNode;
         }
 
+        //----> Doing Preorder Traversal and printing it
+        //----> Time Complexity: O(n) 
+        public void preorderTraversal(Node root){
+
+            if(root == null){
+                return;
+            }
+
+            System.out.print(root.data + " ");
+            preorderTraversal(root.left);
+            preorderTraversal(root.right);
+        }
     }
     public static void main(String[] args) {
 
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
 
         BinaryTree tree = new BinaryTree();
-        Node rootNode = tree.buildTree(nodes);
-        System.out.println(rootNode);
+        Node root = tree.buildTree(nodes);
+        System.out.println(root.data);
+
+        tree.preorderTraversal(root);
         
     }
 
